@@ -1,6 +1,6 @@
 # MyStoreFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+MyStore is Angular application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
 
 ## Development server
 
