@@ -3,8 +3,16 @@
     background: #33B5E5;
     color: #fff;
     padding: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    font-size: 35px;
+    margin: 10px 0px;
 }
   
 a {
     color: #ffffff;
+    text-decoration: none;
+    font-size: large;
 }

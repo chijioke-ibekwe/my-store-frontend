@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -8,8 +9,10 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductItemComponent {
   @Input() product: Product;
+  validQuantities: number[] = [1, 2, 3, 4, 5];
+  quantity: number = 1;
 
-  constructor() {
+  constructor(private cartService: CartService) {
     this.product = {
       id: 0,
       name: '',
@@ -17,5 +20,20 @@ export class ProductItemComponent {
       url: '',
       description: ''
     }
+  }
+
+  addToCart(product: Product): void {
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      url: product.url,
+      quantity: this.quantity
+    }
+
+    this.cartService.addToCart(cartItem);
+    this.quantity = 1;
+
+    alert("Added to cart!");
   }
 }
