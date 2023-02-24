@@ -16,4 +16,8 @@ export class CartService {
   getCartItems(): CartItem[] {
     return this.cartItems;
   }
+
+  removeFromCart(cartItem: CartItem){
+    this.cartItems = this.cartItems.filter(item => item.id != cartItem.id);
+  }
 }

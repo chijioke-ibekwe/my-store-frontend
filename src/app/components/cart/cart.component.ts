@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/CartItem';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -14,5 +14,9 @@ export class CartComponent implements OnInit{
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
+  }
+
+  quantityChange(cartItem: CartItem): void {
+    alert(`Quantity changed to ${cartItem.quantity}`);
   }
 }
