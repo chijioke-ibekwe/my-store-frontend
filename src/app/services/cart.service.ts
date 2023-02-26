@@ -6,6 +6,8 @@ import { CartItem } from '../models/CartItem';
 })
 export class CartService {
   cartItems: CartItem[] = [];
+  fullName: string = '';
+  amountDue: string = '';
 
   constructor() { }
 
@@ -17,7 +19,12 @@ export class CartService {
     return this.cartItems;
   }
 
-  removeFromCart(cartItem: CartItem){
+  removeFromCart(cartItem: CartItem): void{
     this.cartItems = this.cartItems.filter(item => item.id != cartItem.id);
+  }
+
+  setOrderSummary(fullName: string, amountDue: string): void {
+    this.fullName = fullName;
+    this.amountDue = amountDue;
   }
 }

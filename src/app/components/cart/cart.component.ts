@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CartItem } from 'src/app/models/CartItem';
 import { CartService } from 'src/app/services/cart.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,9 +11,10 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit, OnChanges{
   cartItems: CartItem[] = [];
   fullName: string = '';
+  address: string = '';
   amountDue: string = '0';
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
@@ -33,7 +35,8 @@ export class CartComponent implements OnInit, OnChanges{
   }
 
   submitForm(){
-
+    this.cartService.setOrderSummary(this.fullName, this.amountDue);
+    this.router.navigate(['confirmation'], { relativeTo: this.route });
   }
 
   private getCartItemsCost(cartItems: CartItem[]): number {
