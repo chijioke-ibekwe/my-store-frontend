@@ -15,8 +15,20 @@ export class CartService {
     this.cartItems.unshift(cartItem);
   }
 
+  emptyCart(): void {
+    this.cartItems = [];
+  }
+
   getCartItems(): CartItem[] {
     return this.cartItems;
+  }
+
+  getFullname(): string {
+    return this.fullName;
+  }
+
+  getAmountDue(): string {
+    return this.amountDue;
   }
 
   removeFromCart(cartItem: CartItem): void{
@@ -26,5 +38,6 @@ export class CartService {
   setOrderSummary(fullName: string, amountDue: string): void {
     this.fullName = fullName;
     this.amountDue = amountDue;
+    console
   }
 }

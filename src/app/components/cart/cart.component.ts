@@ -12,6 +12,7 @@ export class CartComponent implements OnInit, OnChanges{
   cartItems: CartItem[] = [];
   fullName: string = '';
   address: string = '';
+  creditCard: string = '';
   amountDue: string = '0';
 
   constructor(private cartService: CartService, private router: Router, private route: ActivatedRoute) {}
@@ -36,6 +37,8 @@ export class CartComponent implements OnInit, OnChanges{
 
   submitForm(){
     this.cartService.setOrderSummary(this.fullName, this.amountDue);
+    this.cartService.emptyCart();
+    this.cartItems = [];
     this.router.navigate(['confirmation'], { relativeTo: this.route });
   }
 

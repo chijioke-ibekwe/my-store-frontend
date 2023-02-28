@@ -1,5 +1,5 @@
 <div class="product-container">
-    <img src="{{ product.url }}" class="product-image">
+    <img src="{{ product.url }}" class="product-image" (click)="navigateToProductDetails(product)">
     <form (ngSubmit)="addToCart(product)" method="post">
         <div class="form-label">{{ product.name }}</div>
         <div class="form-label">${{ product.price }}</div>

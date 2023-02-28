@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-item',
@@ -9,10 +10,10 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductItemComponent {
   @Input() product: Product;
-  validQuantities: number[] = [1, 2, 3, 4, 5];
+  validQuantities: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   quantity: number = 1;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private productService: ProductService) {
     this.product = {
       id: 0,
       name: '',
@@ -35,5 +36,9 @@ export class ProductItemComponent {
     this.quantity = 1;
 
     alert("Added to cart!");
+  }
+
+  navigateToProductDetails(product: Product){
+    this.productService.updateViewedItem(product);
   }
 }

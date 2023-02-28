@@ -1,8 +1,11 @@
-<div class="confirmation-container">
+<div *ngIf="fullName.length != 0" class="confirmation-container">
     <h1 class="confirmation-header">Success</h1>
     <div class="confirmation-items">
-        <div class="confirmation-item"></div>
-        <div class="confirmation-item"></div>
-        <div class="confirmation-item"></div>
+        <div class="confirmation-item">Thank you, <strong>{{ fullName }}</strong></div>
+        <div class="confirmation-item">Your <strong>${{ amountDue }}</strong> order is confirmed</div>
+        <div class="confirmation-item">Please allow 1-3 business days for shipping</div>
     </div>
+    <form routerLink="/products">
+        <button type="submit" class="btn btn-primary">Back to product list</button>
+    </form>
 </div>
