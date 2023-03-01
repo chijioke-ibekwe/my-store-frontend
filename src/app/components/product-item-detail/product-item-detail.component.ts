@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductItemDetailComponent implements OnInit{
   productItem: Product;
+  validQuantities: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   quantity: number = 1;
 
   constructor(private productService: ProductService, private cartService: CartService) {
@@ -26,12 +27,12 @@ export class ProductItemDetailComponent implements OnInit{
     this.productItem = this.productService.getViewedItem();
   }
 
-  addToCart(product: Product): void {
+  addToCart(): void {
     const cartItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      url: product.url,
+      id: this.productItem.id,
+      name: this.productItem.name,
+      price: this.productItem.price,
+      url: this.productItem.url,
       quantity: this.quantity
     }
 
