@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-item',
@@ -13,7 +14,8 @@ export class ProductItemComponent {
   validQuantities: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   quantity: number = 1;
 
-  constructor(private cartService: CartService, private productService: ProductService) {
+  constructor(private cartService: CartService, private productService: ProductService, 
+    private router: Router, private route: ActivatedRoute) {
     this.product = {
       id: 0,
       name: '',
@@ -40,5 +42,6 @@ export class ProductItemComponent {
 
   navigateToProductDetails(product: Product){
     this.productService.updateViewedItem(product);
+    this.router.navigate([`${product.id}`], { relativeTo: this.route });
   }
 }
