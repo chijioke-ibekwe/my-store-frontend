@@ -22,8 +22,14 @@ img {
   
 .back-link {
     margin-top: 8px;
+    text-decoration: none;
 }
 
 .item {
     margin-bottom: 20px;
+}
+
+.name {
+    font-size: xx-large;
+    font-weight: 500;
 }

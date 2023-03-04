@@ -28,6 +28,7 @@ export class CartComponent implements OnInit, OnChanges{
 
   quantityChange(cartItem: CartItem): void {
     if(cartItem.quantity < 1) {
+      alert("Removed from cart");
       this.cartService.removeFromCart(cartItem);
       this.cartItems = this.cartItems.filter(item => item.id != cartItem.id);
     }

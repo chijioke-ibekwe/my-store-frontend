@@ -1,7 +1,7 @@
 <div class="detail-container">
     <img src="{{ productItem.url }}">
     <div class="detail-item">
-        <div class="item">{{ productItem.name }}</div>
+        <div class="item name">{{ productItem.name }}</div>
         <div class="item">${{ productItem.price }}</div>
         <div class="item">{{ productItem.description }}</div>
         <form (ngSubmit)="addToCart()" class="item">
