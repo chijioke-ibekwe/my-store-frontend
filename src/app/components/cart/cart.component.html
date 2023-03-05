@@ -8,7 +8,7 @@
                 <div class="form-margin">
                     <label>Amount:</label>
                     <input type="number" value="{{ item.quantity }}" class="number-input" [(ngModel)]="item.quantity" 
-                    (change)="quantityChange(item)">
+                    (ngModelChange)="quantityChange(item)">
                 </div>
             </div>
         </div>
