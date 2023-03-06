@@ -12,7 +12,13 @@ export class CartService {
   constructor() { }
 
   addToCart(cartItem: CartItem): void {
-    this.cartItems.unshift(cartItem);
+    let existingItems: CartItem[] = this.cartItems.filter(item => item.id == cartItem.id);
+
+    if(existingItems) {
+      const index = this.cartItems.indexOf(existingItems[0]);
+
+      this.cartItems.splice(index, 1, cartItem);
+    }
   }
 
   emptyCart(): void {
