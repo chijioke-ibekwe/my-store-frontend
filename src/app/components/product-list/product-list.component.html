@@ -1,5 +1,6 @@
 <div class="product-container">
+    <div class="items-in-cart">No of items in cart: {{ noOfCartItems }}</div>
     <div class="product-index">
-        <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+        <app-product-item *ngFor="let product of products" [product]="product" (addedToCart)="increaseNumberOfCartItems($event)"></app-product-item>
     </div>
 </div>

@@ -12,12 +12,14 @@ export class CartService {
   constructor() { }
 
   addToCart(cartItem: CartItem): void {
-    let existingItems: CartItem[] = this.cartItems.filter(item => item.id == cartItem.id);
+    let existingItems: CartItem[] = this.cartItems.filter(item => item.id === cartItem.id);
 
-    if(existingItems) {
+    if(existingItems.length != 0) {
       const index = this.cartItems.indexOf(existingItems[0]);
 
       this.cartItems.splice(index, 1, cartItem);
+    } else {
+      this.cartItems.unshift(cartItem);
     }
   }
 
@@ -44,6 +46,9 @@ export class CartService {
   setOrderSummary(fullName: string, amountDue: string): void {
     this.fullName = fullName;
     this.amountDue = amountDue;
-    console
+  }
+
+  countCartItems(): number {
+    return this.cartItems.length;
   }
 }

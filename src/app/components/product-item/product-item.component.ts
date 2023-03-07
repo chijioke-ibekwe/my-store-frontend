@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductItemComponent {
   @Input() product: Product;
+  @Output() addedToCart: EventEmitter<number> = new EventEmitter();
   validQuantities: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   quantity: number = 1;
 
@@ -36,6 +37,9 @@ export class ProductItemComponent {
 
     this.cartService.addToCart(cartItem);
     this.quantity = 1;
+
+    const num: number = this.cartService.countCartItems();
+    this.addedToCart.emit(num);
 
     alert("Added to cart!");
   }
