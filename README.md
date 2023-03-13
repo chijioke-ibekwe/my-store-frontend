@@ -1,27 +1,30 @@
-# MyStoreFrontend
+# My Store Frontend
 
-MyStore is Angular application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
+MyStore is an Angular e-commerce application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process. It currently takes a list of products from a json file. However, it will be integrated with th backend APIs at https://github.com/chijioke-ibekwe/store-front-backend soon.
 
-## Development server
+## Getting Started
+### Prerequisites
+You need the following installed on your machine to run this application.  
+NB: The outlined versions are the tested ones. Other versions could also work.
+1. Node v18.12.1
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## How to Run
+To build and run the application locally:
+- Clone the repository using the following command:
+```bash
+git clone https://github.com/<your-git-username>/my-store-frontend.git
+```
 
-## Code scaffolding
+- Install the dependencies using:
+```bash
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Start up the application server on the default port 4200, using the command;
+```bash
+npm start
+```
 
-## Build
+## Author
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Chijioke Ibekwe (https://github.com/chijioke-ibekwe)
