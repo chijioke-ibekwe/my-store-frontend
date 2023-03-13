@@ -1,4 +1,4 @@
-<div class="detail-container">
+<div class="detail-container" *ngIf="productItem.id != 0">
     <img src="{{ productItem.url }}">
     <div class="detail-item">
         <div class="item name">{{ productItem.name }}</div>
