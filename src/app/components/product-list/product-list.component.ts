@@ -10,7 +10,6 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit{
   products: Product[] = [];
-  noOfCartItems: number = 0;
 
   constructor(private productService: ProductService, private cartService: CartService) {}
 
@@ -18,11 +17,6 @@ export class ProductListComponent implements OnInit{
     this.productService.getProducts().subscribe(res => {
       this.products = res;
     })
-    this.noOfCartItems = this.cartService.getCartItems().length;
-  }
-
-  increaseNumberOfCartItems(num: number): void {
-    this.noOfCartItems = num;
   }
 
 }

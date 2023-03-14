@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { CartItem } from '../models/CartItem';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { CartItem } from '../models/CartItem';
 })
 export class CartService {
   cartItems: CartItem[] = [];
+  numberOfCartItems: Subject<number> = new Subject();
   fullName: string = '';
   amountDue: string = '';
 
@@ -21,10 +23,13 @@ export class CartService {
     } else {
       this.cartItems.unshift(cartItem);
     }
+
+    this.numberOfCartItems.next(this.cartItems.length);
   }
 
   emptyCart(): void {
     this.cartItems = [];
+    this.numberOfCartItems.next(this.cartItems.length);
   }
 
   getCartItems(): CartItem[] {
@@ -46,9 +51,5 @@ export class CartService {
   setOrderSummary(fullName: string, amountDue: string): void {
     this.fullName = fullName;
     this.amountDue = amountDue;
-  }
-
-  countCartItems(): number {
-    return this.cartItems.length;
   }
 }

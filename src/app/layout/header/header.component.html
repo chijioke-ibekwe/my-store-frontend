@@ -1,5 +1,16 @@
 <nav class="header">
-    <h1>MyStore</h1>
-    <a routerLink="/products">Product List</a> | 
-    <a routerLink="/cart">Cart</a>
+    <div class="header-items-container">
+        <div></div>
+        <div class="header-items">
+            <div>
+                <h1>MyStore</h1>
+                <a routerLink="/products">Product List</a> | 
+                <a routerLink="/cart">Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-count">
+        <fa-icon [icon]="faShoppingCart" size="lg"></fa-icon>
+        <span class="badge rounded-pill badge-notification bg-danger">{{ numberOfCartItems }}</span>
+    </div>
 </nav>
